@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/content/portfolio-data";
+import { siteUrl } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sameera-portfolio.vercel.app";
+  const baseUrl = siteUrl;
   const lastModified = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [

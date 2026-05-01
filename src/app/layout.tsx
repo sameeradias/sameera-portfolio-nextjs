@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { siteUrl } from "@/lib/site-config";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sameera-portfolio.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Sameera Roshan Dias | Software Engineer",
     template: "%s | Sameera Roshan Dias",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     description:
       "Portfolio and resume of Sameera Roshan Dias, Software Engineer focused on SaaS, ERP systems, and cloud deployment.",
     type: "website",
-    url: "https://sameera-portfolio.vercel.app",
+    url: siteUrl,
   },
   twitter: {
     card: "summary_large_image",

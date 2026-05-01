@@ -37,6 +37,12 @@ npm run build
    - `VERCEL_TOKEN`
    - `VERCEL_ORG_ID`
    - `VERCEL_PROJECT_ID`
+7. Set repository variable (or env in Vercel/GitHub Actions):
+   - `NEXT_PUBLIC_SITE_URL=https://sameeradias.vercel.app`
+
+Detailed secrets/variables reference:
+
+- `.github/ENVIRONMENT_VARIABLES.md`
 
 ## Git Setup
 
