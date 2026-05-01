@@ -1,0 +1,101 @@
+name: Portfolio Pipeline
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+concurrency:
+  group: portfolio-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Lint, Type Check, Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Build
+        run: npm run build
+
+  deploy-production:
+    name: Deploy to Vercel (Production)
+    needs: quality
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/main' &&
+      secrets.VERCEL_TOKEN != '' &&
+      secrets.VERCEL_ORG_ID != '' &&
+      secrets.VERCEL_PROJECT_ID != ''
+
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel project settings
+        run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+
+      - name: Build Vercel artifacts
+        run: vercel build --prod --token="$VERCEL_TOKEN"
+
+      - name: Deploy to production
+        id: deploy
+        run: |
+          DEPLOYMENT_OUTPUT="$(vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN")"
+          DEPLOYMENT_URL="$(echo "$DEPLOYMENT_OUTPUT" | grep -Eo 'https://[^ ]+\.vercel\.app' | tail -n 1)"
+
+          if [ -z "$DEPLOYMENT_URL" ]; then
+            echo "Failed to detect deployment URL from Vercel output."
+            echo "$DEPLOYMENT_OUTPUT"
+            exit 1
+          fi
+
+          echo "url=$DEPLOYMENT_URL" >> "$GITHUB_OUTPUT"
+          echo "Production deployment URL: $DEPLOYMENT_URL"
+
+      - name: Enforce sameeradias production subdomain
+        run: |
+          if [ "${{ steps.deploy.outputs.url }}" != "https://sameeradias.vercel.app" ]; then
+            echo "Production URL must be https://sameeradias.vercel.app"
+            echo "Current URL: ${{ steps.deploy.outputs.url }}"
+            echo "Rename the Vercel project to 'sameeradias' (or set sameeradias.vercel.app as production domain) and redeploy."
+            exit 1
+          fi

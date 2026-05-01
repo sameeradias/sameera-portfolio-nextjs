@@ -1,0 +1,41 @@
+Sameera Roshan Dias
+Madiwela, Kotte, Sri Lanka
++94 76 1140 025
+sameeradias98@gmail.com
+LinkedIn: https://linkedin.com/in/sameera-dias-387943110
+GitHub: https://github.com/sameeradias
+
+PROFESSIONAL SUMMARY
+Software Engineer with 3+ years of hands-on experience building production-grade SaaS and ERP systems. Skilled across .NET, Next.js, and React Native with strong expertise in multi-tenant architecture, API design, and relational modeling. Delivers end-to-end from design to cloud deployment with focus on clean code and reliable pipelines.
+
+EXPERIENCE
+DevX Technologies (Pvt) Ltd - Software Engineer (Apr 2025 - Present)
+- Architected a multi-tenant SaaS ERP platform across 6 services.
+- Built 18+ backend domain modules (Sales, Purchases, Inventory, Payroll, Accounting, POS, CRM, etc.).
+- Implemented API versioning, SignalR workflows, JWT/OTP-based auth, and production support fixes.
+- Contributed to CI/CD pipelines using GitHub Actions, Docker, and AWS ECR.
+
+Echonlabs (Pvt) Ltd - Associate Software Engineer (Mar 2024 - Apr 2025)
+- Built and maintained SaaS applications with Angular, NestJS, MongoDB.
+- Improved payment integration reliability and reporting query performance by 50%.
+- Implemented Jest tests and supported GitLab CI/CD releases.
+
+Echonlabs (Pvt) Ltd - Trainee Software Developer (Feb 2023 - Mar 2024)
+- Contributed to finance-related web applications using Angular, Node.js, and MongoDB.
+- Added testing and supported production troubleshooting.
+
+DevX Technologies (Pvt) Ltd - Trainee Mobile Software Engineer (Aug 2022 - Jan 2023)
+- Built Flutter mobile features with secure payments and Firebase auth/realtime data.
+
+EDUCATION
+- BSc in Applied Sciences (Computer Science, Physics, Chemistry), Rajarata University of Sri Lanka (2021 - 2024)
+- GCE A/L (Bio Science, 3 C passes) - Dharmasoka College (2018)
+- GCE O/L (8 A passes, 1 B pass) - Dharmasoka College (2014)
+
+LANGUAGES
+- Sinhala (Native)
+- English (Advanced)
+
+REFERENCES
+- Mr. Sampath Sandaruwan (Associate Tech Lead, 99x) | 077 4471 293 | sampaths@99x.io
+- Mr. Vishwajith Weerasinghe (Senior Software Engineer, DevX Technologies) | 076 2646 098 | vishwajith@devxtechnologies.com
