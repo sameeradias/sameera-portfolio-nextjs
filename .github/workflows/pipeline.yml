@@ -14,7 +14,7 @@ concurrency:
 jobs:
   quality:
     name: Lint, Type Check, Build
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, macOS, ARM64]
     env:
       NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
 
@@ -43,7 +43,7 @@ jobs:
   deploy-production:
     name: Deploy to Vercel (Production)
     needs: quality
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, macOS, ARM64]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment: main
 
