@@ -26,7 +26,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Install dependencies
         run: npm install
@@ -61,7 +60,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Install dependencies
         run: npm install
@@ -90,11 +88,11 @@ jobs:
           echo "url=$DEPLOYMENT_URL" >> "$GITHUB_OUTPUT"
           echo "Production deployment URL: $DEPLOYMENT_URL"
 
-      - name: Enforce sameeradias production subdomain
+      - name: Enforce sameeradias production domain
         run: |
-          if [ "${{ steps.deploy.outputs.url }}" != "https://sameeradias.vercel.app" ]; then
-            echo "Production URL must be https://sameeradias.vercel.app"
+          if [ "${{ steps.deploy.outputs.url }}" != "https://sameeradias.site" ]; then
+            echo "Production URL must be https://sameeradias.site"
             echo "Current URL: ${{ steps.deploy.outputs.url }}"
-            echo "Rename the Vercel project to 'sameeradias' (or set sameeradias.vercel.app as production domain) and redeploy."
+            echo "Ensure sameeradias.site is configured as the production domain in Vercel and redeploy."
             exit 1
           fi
