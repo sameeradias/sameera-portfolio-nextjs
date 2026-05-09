@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" fill="none">
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .title { font-size: 14px; font-weight: 700; fill: #0f172a; }
+    .subtitle { font-size: 11px; fill: #475569; }
+    .label { font-size: 10px; fill: #64748b; }
+    .box { rx: 12; ry: 12; stroke-width: 1.5; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="480" fill="#f8fafc" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title" style="font-size:16px">TaxFriend ERP Ecosystem — Full-Stack Architecture</text>
+
+  <!-- Client Layer -->
+  <text x="30" y="75" class="label" style="font-weight:600">CLIENTS</text>
+
+  <rect x="80" y="60" width="200" height="65" class="box" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="180" y="85" text-anchor="middle" class="title">Backoffice App</text>
+  <text x="180" y="100" text-anchor="middle" class="subtitle">Next.js 15 · 25+ modules</text>
+  <text x="180" y="115" text-anchor="middle" class="subtitle">shadcn/ui · TanStack Table</text>
+
+  <rect x="350" y="60" width="200" height="65" class="box" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="450" y="85" text-anchor="middle" class="title">Mobile App</text>
+  <text x="450" y="100" text-anchor="middle" class="subtitle">Expo SDK 54 · React Native</text>
+  <text x="450" y="115" text-anchor="middle" class="subtitle">Redux Saga · 3 languages</text>
+
+  <rect x="620" y="60" width="200" height="65" class="box" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="720" y="85" text-anchor="middle" class="title">POS Bill Viewer</text>
+  <text x="720" y="100" text-anchor="middle" class="subtitle">Standalone route</text>
+  <text x="720" y="115" text-anchor="middle" class="subtitle">Thermal printer support</text>
+
+  <!-- API Version Split -->
+  <rect x="130" y="160" width="100" height="30" rx="15" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="180" y="180" text-anchor="middle" class="label" style="font-weight:600">API v1 (Full)</text>
+
+  <rect x="400" y="160" width="100" height="30" rx="15" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="450" y="180" text-anchor="middle" class="label" style="font-weight:600">API v2 (Mobile)</text>
+
+  <!-- Arrows to API -->
+  <path d="M 180 125 L 180 160" class="arrow"/>
+  <path d="M 450 125 L 450 160" class="arrow"/>
+  <path d="M 180 190 L 180 220 L 400 220 L 400 240" class="arrow"/>
+  <path d="M 450 190 L 450 220 L 500 220 L 500 240" class="arrow"/>
+
+  <!-- Backend API -->
+  <rect x="280" y="240" width="340" height="80" class="box" fill="#ecfdf5" stroke="#6ee7b7"/>
+  <text x="450" y="268" text-anchor="middle" class="title">Backoffice API (.NET 8)</text>
+  <text x="450" y="285" text-anchor="middle" class="subtitle">31 controller groups · JWT + Identity</text>
+  <text x="450" y="300" text-anchor="middle" class="subtitle">SignalR hub · QuestPDF · PayHere</text>
+  <text x="450" y="315" text-anchor="middle" class="subtitle">5 background services</text>
+
+  <!-- SignalR -->
+  <rect x="660" y="250" width="160" height="50" class="box" fill="#faf5ff" stroke="#c084fc"/>
+  <text x="740" y="273" text-anchor="middle" class="title">SignalR Hub</text>
+  <text x="740" y="290" text-anchor="middle" class="subtitle">Real-time notifications</text>
+  <path d="M 620 270 L 660 270" class="arrow"/>
+
+  <!-- Background Services -->
+  <rect x="80" y="255" width="170" height="55" class="box" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="165" y="278" text-anchor="middle" class="title">Background Jobs</text>
+  <text x="165" y="293" text-anchor="middle" class="subtitle">Email · Push · Escalation</text>
+  <text x="165" y="305" text-anchor="middle" class="subtitle">Payment reconciliation</text>
+  <path d="M 250 280 L 280 280" class="arrow"/>
+
+  <!-- Databases -->
+  <path d="M 380 320 L 300 370" class="arrow"/>
+  <path d="M 450 320 L 450 370" class="arrow"/>
+  <path d="M 520 320 L 600 370" class="arrow"/>
+
+  <rect x="200" y="370" width="160" height="50" class="box" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="280" y="395" text-anchor="middle" class="subtitle">PostgreSQL</text>
+  <text x="280" y="410" text-anchor="middle" class="label">db_taxfriend (primary)</text>
+
+  <rect x="380" y="370" width="140" height="50" class="box" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="450" y="395" text-anchor="middle" class="subtitle">MongoDB</text>
+  <text x="450" y="410" text-anchor="middle" class="label">Activity logs</text>
+
+  <rect x="540" y="370" width="160" height="50" class="box" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="620" y="395" text-anchor="middle" class="subtitle">File Storage</text>
+  <text x="620" y="410" text-anchor="middle" class="label">Drive · Documents</text>
+
+  <!-- Domain Modules -->
+  <rect x="80" y="440" width="740" height="30" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="450" y="460" text-anchor="middle" class="label">MODULES: Sales · Purchases · Stock · Contacts · Accounts · Logistics · Payroll · Appointments · Tax · Articles · Reports · Invoices · CRM · Drive · Settings</text>
+</svg>

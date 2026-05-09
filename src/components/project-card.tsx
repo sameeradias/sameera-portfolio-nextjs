@@ -34,6 +34,16 @@ export function ProjectCard({ project, compact = false }: ProjectCardProps) {
         >
           View case study {"->"}
         </Link>
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="ml-4 mt-6 inline-flex items-center text-sm font-semibold text-slate-500 transition hover:text-slate-800"
+          >
+            GitHub
+          </a>
+        )}
       </div>
     </article>
   );

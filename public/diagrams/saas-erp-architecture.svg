@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" fill="none">
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .title { font-size: 14px; font-weight: 700; fill: #0f172a; }
+    .subtitle { font-size: 11px; fill: #475569; }
+    .label { font-size: 10px; fill: #64748b; }
+    .box { rx: 12; ry: 12; stroke-width: 1.5; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" fill="#f8fafc" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title" style="font-size:16px">SaaS ERP Platform — Multi-Tenant Architecture</text>
+
+  <!-- Tier Labels -->
+  <text x="30" y="75" class="label" style="font-weight:600">CLIENTS</text>
+  <text x="30" y="230" class="label" style="font-weight:600">PUBLIC LAYER</text>
+  <text x="30" y="340" class="label" style="font-weight:600">PRIVATE LAYER</text>
+
+  <!-- Client Apps -->
+  <rect x="150" y="60" width="160" height="55" class="box" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="230" y="85" text-anchor="middle" class="title">Admin Portal App</text>
+  <text x="230" y="102" text-anchor="middle" class="subtitle">Vite + React + TanStack</text>
+
+  <rect x="370" y="60" width="160" height="55" class="box" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="450" y="85" text-anchor="middle" class="title">Client App</text>
+  <text x="450" y="102" text-anchor="middle" class="subtitle">Next.js 15 + Redux</text>
+
+  <rect x="590" y="60" width="160" height="55" class="box" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="670" y="85" text-anchor="middle" class="title">Mobile App</text>
+  <text x="670" y="102" text-anchor="middle" class="subtitle">Expo SDK 54</text>
+
+  <!-- Arrows from clients to proxy -->
+  <path d="M 230 115 L 230 145 L 450 145 L 450 200" class="arrow"/>
+  <path d="M 450 115 L 450 200" class="arrow"/>
+  <path d="M 670 115 L 670 145 L 450 145 L 450 200" class="arrow"/>
+
+  <!-- Proxy API -->
+  <rect x="320" y="200" width="260" height="70" class="box" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="450" y="228" text-anchor="middle" class="title">Proxy API (.NET 8)</text>
+  <text x="450" y="245" text-anchor="middle" class="subtitle">Subdomain routing · Shard allocation</text>
+  <text x="450" y="260" text-anchor="middle" class="subtitle">Only internet-facing service</text>
+
+  <!-- Proxy DB -->
+  <rect x="640" y="210" width="130" height="50" class="box" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="705" y="235" text-anchor="middle" class="subtitle">db_erpx_proxy</text>
+  <text x="705" y="250" text-anchor="middle" class="label">TenantRoutes · Shards</text>
+  <path d="M 580 235 L 640 235" class="arrow"/>
+
+  <!-- Arrows from proxy to services -->
+  <path d="M 380 270 L 200 310" class="arrow"/>
+  <path d="M 450 270 L 450 310" class="arrow"/>
+  <path d="M 520 270 L 700 310" class="arrow"/>
+
+  <!-- Admin Portal API -->
+  <rect x="100" y="310" width="200" height="70" class="box" fill="#ecfdf5" stroke="#6ee7b7"/>
+  <text x="200" y="338" text-anchor="middle" class="title">Admin Portal API</text>
+  <text x="200" y="355" text-anchor="middle" class="subtitle">.NET 10 · Tenant management</text>
+  <text x="200" y="370" text-anchor="middle" class="subtitle">Packages · Modules · RBAC</text>
+
+  <!-- Client API -->
+  <rect x="350" y="310" width="200" height="70" class="box" fill="#ecfdf5" stroke="#6ee7b7"/>
+  <text x="450" y="338" text-anchor="middle" class="title">Client API Instance</text>
+  <text x="450" y="355" text-anchor="middle" class="subtitle">.NET 8 · Business logic</text>
+  <text x="450" y="370" text-anchor="middle" class="subtitle">31 controllers · 18+ modules</text>
+
+  <!-- Shared Contracts -->
+  <rect x="600" y="310" width="200" height="70" class="box" fill="#faf5ff" stroke="#c084fc"/>
+  <text x="700" y="338" text-anchor="middle" class="title">Shared Contracts</text>
+  <text x="700" y="355" text-anchor="middle" class="subtitle">NuGet package</text>
+  <text x="700" y="370" text-anchor="middle" class="subtitle">Events · Module definitions</text>
+
+  <!-- Databases -->
+  <rect x="100" y="430" width="160" height="50" class="box" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="180" y="455" text-anchor="middle" class="subtitle">db_erpx_admin_portal</text>
+  <text x="180" y="470" text-anchor="middle" class="label">PostgreSQL</text>
+
+  <rect x="350" y="430" width="200" height="50" class="box" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="450" y="455" text-anchor="middle" class="subtitle">db_tenant_* (per tenant)</text>
+  <text x="450" y="470" text-anchor="middle" class="label">PostgreSQL · Isolated shards</text>
+
+  <!-- DB arrows -->
+  <path d="M 200 380 L 180 430" class="arrow"/>
+  <path d="M 450 380 L 450 430" class="arrow"/>
+
+  <!-- Legend -->
+  <rect x="640" y="430" width="220" height="70" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="660" y="450" class="label" style="font-weight:600">DEPLOYMENT</text>
+  <text x="660" y="468" class="label">• Docker containers on AWS EC2</text>
+  <text x="660" y="483" class="label">• GitHub Actions CI/CD pipelines</text>
+  <text x="660" y="498" class="label">• ECR image registry with lifecycle</text>
+</svg>

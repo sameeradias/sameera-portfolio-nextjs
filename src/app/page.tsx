@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ProjectCard } from "@/components/project-card";
 import { SectionTitle } from "@/components/section-title";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import {
+  availability,
   experience,
   featuredProjects,
   impactStats,
@@ -52,7 +54,7 @@ export default function Home() {
                 View Resume
               </Link>
               <a
-                href="/Sameera-Roshan-Dias-Resume.txt"
+                href="/Sameera-Roshan-Dias-Resume.pdf"
                 download
                 className="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-500"
               >
@@ -64,9 +66,14 @@ export default function Home() {
           <aside className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="absolute inset-x-0 top-0 h-20 bg-[linear-gradient(120deg,rgba(15,23,42,.08),rgba(15,118,110,.15),rgba(15,23,42,.05))]" />
             <div className="relative">
-              <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[color:var(--brand-ink)] text-2xl font-bold text-white">
-                SD
-              </div>
+              <Image
+                src="/sameera-dias.jpeg"
+                alt="Sameera Roshan Dias"
+                width={80}
+                height={80}
+                className="mb-4 h-20 w-20 rounded-2xl object-cover"
+                priority
+              />
               <h2 className="text-lg font-semibold text-[color:var(--brand-ink)]">Engineering Snapshot</h2>
               <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
                 {resumeHighlights.map((highlight) => (
@@ -148,13 +155,24 @@ export default function Home() {
           <SectionTitle
             eyebrow="Core Skills"
             title="Technology and Delivery Toolkit"
-            description="Balanced across application development, data architecture, and cloud delivery automation."
+            description="Grouped by proficiency — production experience means I've shipped and maintained it in real systems."
           />
           <div className="grid gap-5 md:grid-cols-2">
             {skillGroups.map((group) => (
               <article key={group.category} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h3 className="text-lg font-semibold text-[color:var(--brand-ink)]">{group.category}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{group.items.join(" · ")}</p>
+                <div className="mt-3 space-y-2">
+                  <p className="text-sm leading-7 text-slate-800">
+                    <span className="font-semibold text-[color:var(--brand-accent)]">Production:</span>{" "}
+                    {group.items.filter((i) => i.level === "production").map((i) => i.name).join(" · ")}
+                  </p>
+                  {group.items.some((i) => i.level === "familiar") && (
+                    <p className="text-sm leading-7 text-slate-500">
+                      <span className="font-semibold">Familiar:</span>{" "}
+                      {group.items.filter((i) => i.level === "familiar").map((i) => i.name).join(" · ")}
+                    </p>
+                  )}
+                </div>
               </article>
             ))}
           </div>
@@ -165,8 +183,15 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-teal-200">Open To Opportunities</p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">Let&apos;s Build Software That Lasts</h2>
             <p className="mt-4 max-w-3xl text-base leading-8 text-slate-100 md:text-lg">
-              I&apos;m open to backend-heavy or full-stack roles where product quality, reliability, and ownership matter.
+              {availability.looking}
             </p>
+            <ul className="mt-6 grid gap-3 text-sm leading-7 text-slate-200 sm:grid-cols-2">
+              <li className="rounded-xl bg-white/10 px-4 py-3"><span className="font-semibold text-teal-200">Availability:</span> {availability.status}</li>
+              <li className="rounded-xl bg-white/10 px-4 py-3"><span className="font-semibold text-teal-200">Preference:</span> {availability.preferences}</li>
+              <li className="rounded-xl bg-white/10 px-4 py-3"><span className="font-semibold text-teal-200">Culture fit:</span> {availability.culture}</li>
+              <li className="rounded-xl bg-white/10 px-4 py-3"><span className="font-semibold text-teal-200">Relocation:</span> {availability.relocation}</li>
+              <li className="rounded-xl bg-white/10 px-4 py-3 sm:col-span-2"><span className="font-semibold text-teal-200">Not looking for:</span> {availability.notLooking}</li>
+            </ul>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href={`mailto:${profile.email}`}
