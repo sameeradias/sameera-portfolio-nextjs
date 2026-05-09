@@ -2,7 +2,7 @@ import { PropsWithChildren } from "react";
 
 export function Chip({ children }: PropsWithChildren) {
   return (
-    <span className="inline-flex items-center rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-semibold tracking-wide text-slate-700">
+    <span className="inline-flex items-center rounded-full border border-border px-3 py-1 font-mono text-xs text-text-muted">
       {children}
     </span>
   );

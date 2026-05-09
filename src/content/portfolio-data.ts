@@ -43,9 +43,9 @@ export const profile = {
   github: "https://github.com/sameeradias",
   title: "Software Engineer",
   heroLine:
-    "I build the backend architecture that SaaS products scale on — and the CI/CD pipelines that make every deployment boring.",
+    "Building production-grade SaaS platforms and ERP systems that serve real business operations — from multi-tenant architecture and API design to containerized deployments on AWS.",
   summary:
-    "Software Engineer with 3+ years of experience building multi-tenant platforms, cloud deployment pipelines, and cross-platform product experiences with .NET, Next.js, and React Native.",
+    "Software Engineer with 3+ years of hands-on experience building production-grade SaaS platforms and ERP systems serving real business operations. Skilled in full-stack development across .NET, Next.js, and React Native with deep expertise in multi-tenant architecture, RESTful API design, and relational database modeling. Owns the full delivery lifecycle — from system design and implementation to containerized deployments on AWS. Committed to clean code, automated pipelines, and pragmatic engineering decisions that ship reliably.",
   focus:
     "My strongest value is delivery ownership across architecture, implementation, testing, and release workflows.",
 };

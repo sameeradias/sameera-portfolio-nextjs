@@ -1,16 +1,57 @@
 @import "tailwindcss";
 
 :root {
-  --color-background: #f3f6f8;
-  --color-foreground: #0f172a;
-  --brand-ink: #102033;
-  --brand-ink-muted: #365474;
-  --brand-accent: #0f766e;
+  --background: #fafbfc;
+  --surface: #ffffff;
+  --surface-elevated: #f1f5f9;
+  --border: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --accent: #4f46e5;
+  --accent-glow: #6366f1;
+  --accent-secondary: #0891b2;
+  --accent-warm: #d97706;
+  --success: #059669;
+  --gradient-start: #4f46e5;
+  --gradient-end: #0891b2;
+}
+
+.dark {
+  --background: #0a0a0f;
+  --surface: #141419;
+  --surface-elevated: #1c1c24;
+  --border: #2a2a35;
+  --border-hover: #3d3d4a;
+  --text-primary: #f0f0f3;
+  --text-secondary: #a0a0b0;
+  --text-muted: #6b6b7b;
+  --accent: #6366f1;
+  --accent-glow: #818cf8;
+  --accent-secondary: #06b6d4;
+  --accent-warm: #f59e0b;
+  --success: #10b981;
+  --gradient-start: #6366f1;
+  --gradient-end: #06b6d4;
 }
 
 @theme inline {
-  --color-background: var(--color-background);
-  --color-foreground: var(--color-foreground);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-glow: var(--accent-glow);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-warm: var(--accent-warm);
+  --color-success: var(--success);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 * {
@@ -23,24 +64,9 @@ html {
 
 body {
   margin: 0;
-  color: var(--color-foreground);
-  background: var(--color-background);
-  font-family: "Avenir Next", "Segoe UI", "Noto Sans", "Helvetica Neue", sans-serif;
-  text-rendering: optimizeLegibility;
-}
-
-.brand-page-bg {
-  background:
-    radial-gradient(780px 300px at 8% -10%, rgba(15, 118, 110, 0.2), transparent 65%),
-    radial-gradient(880px 320px at 92% -2%, rgba(20, 40, 70, 0.13), transparent 68%),
-    linear-gradient(180deg, #f3f6f8 0%, #ebf0f5 50%, #f5f7fa 100%);
-}
-
-.project-art {
-  background:
-    linear-gradient(130deg, rgba(16, 32, 51, 0.95), rgba(15, 118, 110, 0.9)),
-    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.24), transparent 55%),
-    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.16), transparent 45%);
+  color: var(--text-primary);
+  background: var(--background);
+  transition: background-color 300ms, color 300ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
