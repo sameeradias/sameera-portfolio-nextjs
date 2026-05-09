@@ -1,11 +1,18 @@
 import type { MetadataRoute } from "next";
+import { projects } from "@/content/portfolio-data";
 
 const baseUrl = "https://sameeradias.site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const projectPages = projects.map((project) => ({
+    url: `${baseUrl}/projects/${project.slug}`,
+    lastModified: new Date(),
+    priority: 0.7 as const,
+  }));
+
   return [
     {
-      url: `${baseUrl}`,
+      url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
@@ -20,5 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       priority: 0.8,
     },
+    ...projectPages,
   ];
 }
