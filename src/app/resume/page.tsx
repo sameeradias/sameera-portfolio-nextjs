@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { education, experience, infrastructureHighlights, leadership, profile, references, skillGroups } from "@/content/portfolio-data";

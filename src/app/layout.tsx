@@ -17,23 +17,26 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Sameera Roshan Dias | Software Engineer",
+    default: "Sameera Roshan Dias | Software Engineer | .NET • Next.js • AWS",
     template: "%s | Sameera Roshan Dias",
   },
   description:
-    "Portfolio and resume of Sameera Roshan Dias, Software Engineer building production SaaS and ERP systems with .NET, Next.js, React Native, and AWS.",
+    "Portfolio of Sameera Roshan Dias — Software Engineer building SaaS, ERP, and scalable full-stack applications with .NET, Next.js, PostgreSQL, AWS, and Docker.",
   authors: [{ name: "Sameera Roshan Dias" }],
   creator: "Sameera Roshan Dias",
   keywords: [
     "Sameera Roshan Dias",
-    "Software Engineer",
-    ".NET",
+    "Sameera Dias Software Engineer",
+    "Software Engineer Sri Lanka",
+    ".NET Developer Sri Lanka",
+    "Full Stack Engineer Sri Lanka",
     "Next.js",
     "React Native",
     "SaaS",
     "ERP",
     "PostgreSQL",
     "AWS",
+    "Docker",
   ],
   openGraph: {
     title: "Sameera Roshan Dias | Software Engineer",
