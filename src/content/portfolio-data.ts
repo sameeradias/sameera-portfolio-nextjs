@@ -107,7 +107,7 @@ export const experience: ExperienceEntry[] = [
     ],
   },
   {
-    company: "DevX Technologies (Pvt) Ltd",
+    company: "Codera Technologies Private Limited",
     role: "Trainee Mobile Software Engineer",
     period: "Aug 2022 - Jan 2023",
     highlights: [
